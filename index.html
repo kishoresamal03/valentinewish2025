@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Book Proposal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General styles for the page */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        /* Flower blooming animation */
+        .flower {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f4c9d7, #e086a6);
+            animation: bloom 2s infinite ease-in-out;
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Hide preloader after the page loads */
+        .loaded #preloader {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Book Page Styles */
+        .book-container {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .page {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .page h1, .page h2 {
+            text-align: center;
+            color: #e086a6;
+        }
+
+        .page p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Animation for page fade-in */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .book-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .page h1 {
+                font-size: 1.5rem;
+            }
+
+            .page h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader (Flower Blooming) -->
+    <div id="preloader">
+        <div class="flower"></div>
+    </div>
+
+    <!-- Your Main Book Content -->
+    <div class="book-container">
+        <div class="book">
+            <div class="page">
+                <h1>"Not Being With You, But Being Part Of Your Life"</h1>
+                <p>Your chapter begins here...</p>
+            </div>
+            <div class="page">
+                <h2>Chapter 1: A Blooming Heart</h2>
+                <p>"I adore you more than words can say, like the blooming flower that cannot be ignored."</p>
+            </div>
+            <div class="page">
+                <h2>Chapter 2: Acceptance</h2>
+                <p>"Will you go on this journey with me? Hand in hand, we walk together into the pages of forever."</p>
+            </div>
+            <div class="page">
+                <h2>Chapter 3: Together Forever</h2>
+                <p>"I will always be beside you, in every chapter of life. I will be your right or left, whichever you choose."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        window.onload = function() {
+            // Remove the preloader after page loads
+            document.body.classList.add('loaded');
+
+            // Show the book pages one by one after the preloader
+            const pages = document.querySelectorAll('.page');
+            pages.forEach((page, index) => {
+                setTimeout(() => {
+                    page.style.opacity = '1';
+                    page.style.transform = 'translateY(0)';
+                }, index * 1000);  // Delay each page reveal by 1 second
+            });
+        };
+    </script>
+</body>
+</html>
