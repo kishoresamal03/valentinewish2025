@@ -1,176 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Book Proposal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* General styles for the page */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <title>CodePen - Text Book</title>
+  <link rel="stylesheet" href="./style.css">
 
-        /* Preloader Styles */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 1s ease-out;
-        }
-
-        /* Flower blooming animation */
-        .flower {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #f4c9d7, #e086a6);
-            animation: bloom 2s infinite ease-in-out;
-        }
-
-        @keyframes bloom {
-            0% {
-                transform: scale(0);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-        }
-
-        /* Hide preloader after the page loads */
-        .loaded #preloader {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Book Page Styles */
-        .book-container {
-            position: relative;
-            width: 90%;
-            max-width: 700px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .book {
-            display: flex;
-            flex-direction: column;
-            transition: all 0.5s ease-in-out;
-        }
-
-        .page {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 0.5s forwards;
-        }
-
-        .page h1, .page h2 {
-            text-align: center;
-            color: #e086a6;
-        }
-
-        .page p {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        /* Animation for page fade-in */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .book-container {
-                width: 100%;
-                padding: 20px;
-            }
-
-            .page h1 {
-                font-size: 1.5rem;
-            }
-
-            .page h2 {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Preloader (Flower Blooming) -->
-    <div id="preloader">
-        <div class="flower"></div>
-    </div>
+<!-- partial:index.partial.html -->
+<main>
+	<audio src="assets/bg-sound.mp3" autoplay loop style="display: none;"></audio>
 
-    <!-- Your Main Book Content -->
-    <div class="book-container">
-        <div class="book">
-            <div class="page">
-                <h1>"Not Being With You, But Being Part Of Your Life"</h1>
-                <p>Your chapter begins here...</p>
-            </div>
-            <div class="page">
-                <h2>Chapter 1: A Blooming Heart</h2>
-                <p>"I adore you more than words can say, like the blooming flower that cannot be ignored."</p>
-            </div>
-            <div class="page">
-                <h2>Chapter 2: Acceptance</h2>
-                <p>"Will you go on this journey with me? Hand in hand, we walk together into the pages of forever."</p>
-            </div>
-            <div class="page">
-                <h2>Chapter 3: Together Forever</h2>
-                <p>"I will always be beside you, in every chapter of life. I will be your right or left, whichever you choose."</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS and custom JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script>
-        window.onload = function() {
-            // Remove the preloader after page loads
-            document.body.classList.add('loaded');
-
-            // Show the book pages one by one after the preloader
-            const pages = document.querySelectorAll('.page');
-            pages.forEach((page, index) => {
-                setTimeout(() => {
-                    page.style.opacity = '1';
-                    page.style.transform = 'translateY(0)';
-                }, index * 1000);  // Delay each page reveal by 1 second
-            });
-        };
-    </script>
+	<div class="book">
+		<div class="book-cover">
+			<div>
+				<h1>Mrs. Dalloway</h1>
+				<div class="separator"></div>
+				<h2>by Virginia Woolf</h2>
+			</div>
+		</div>
+		<div class="book-content">
+			<article>
+				<header>
+					<h1>First Chapter</h1>
+					<h2>TUM ACCHI LAGTI HO</h2>
+					<!-- <h3>An Excerpt from Chapter One</h3> -->
+				</header>
+				<section style="margin-top:2rem;text-align:center!important">
+					<hr>
+					<h3>वो शरारत से पूछती है,<br><em>"मैं कैसी दिखती हूँ?"</em></h3>
+					<h4>मैं मुस्कुराकर कहता हूँ, "सुनो,</h4>
+					<blockquote class="shayari">
+						<p>सुनदर तो तुम हमेशा लगती हो,</p>
+						<p>पर जब आँखों में काजल और माथे पे बिंदी होती है,</p>
+						<p>तब दिल की धड़कनें भी बेकाबू हो जाती हैं,</p>
+						<p>ऐसे कातिल अंदाज़ से नजरें मिलाती हो,</p>
+						<p>सच में... <strong>अच्छी लगती हो</strong>।</p>
+					</blockquote>
+					
+					<p><strong>ये तो था सिर्फ पहला चैप्टर, आगे की कहानी तब लिखेंगे, जब तुम मेरा हाथ थामोगी।</strong></p>
+					
+					<h2 class="heart" style="text-align:center">I ADORE YOU ❤️</h2>
+					
+					<p class="dm" style="text-align:center">अगर महसूस हुआ हो कुछ खास,<br>तो DM करके कह देना... 😍</p>
+				</section>
+			</article>
+		</div>
+	</div>
+</main>
+<!-- partial -->
+  
 </body>
 </html>
