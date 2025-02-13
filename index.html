@@ -68,25 +68,35 @@
 <!-- partial -->
 <div class="tap-hint" style="text-align: center;font-style:normal; margin-top: 10px; font-size: 16px; color: #000000!important;">
 	<h1>👉 Tap on the book to open</h1>
-	<video id="background-audio" autoplay loop playsinline style="display:none">
+	<video id="background-video" autoplay loop playsinline style="display:none">
 		<source src="./assets/bg-dound.mp4" type="video/mp4">
 		Your browser does not support the video tag.
 	</video>
+
 	<script>
-		const video = document.getElementById('background-video');
+		window.addEventListener('load', () => {
+			const video = document.getElementById('background-video');
+			
+			if (video) {
+				const playVideoAudio = () => {
+					video.play().catch(error => {
+						console.error('Autoplay failed:', error);
+					});
+					document.body.removeEventListener('click', playVideoAudio);
+					document.body.removeEventListener('keydown', playVideoAudio);
+					document.body.removeEventListener('touchstart', playVideoAudio);
+				};
 	
-		function playVideoAudio() {
-			video.play();
-			// Remove all event listeners after first play
-			document.body.removeEventListener('click', playVideoAudio);
-			document.body.removeEventListener('keydown', playVideoAudio);
-			document.body.removeEventListener('touchstart', playVideoAudio);
-		}
-	
-		document.body.addEventListener('click', playVideoAudio);
-		document.body.addEventListener('keydown', playVideoAudio);
-		document.body.addEventListener('touchstart', playVideoAudio);
+				// Detect any interaction
+				document.body.addEventListener('click', playVideoAudio);
+				document.body.addEventListener('keydown', playVideoAudio);
+				document.body.addEventListener('touchstart', playVideoAudio);
+			} else {
+				console.error('Video element not found!');
+			}
+		});
 	</script>
+	
 	
 </body>
 </html>
